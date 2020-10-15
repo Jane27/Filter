@@ -4,7 +4,7 @@ import { Container } from "reactstrap";
 
 import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Profile from "./components/Profile";
 import { Auth0ContextInterface, withAuth0 } from "@auth0/auth0-react";
 import history from "./utils/history";
@@ -21,8 +21,7 @@ interface AppProps {
 }
 
 class App extends Component<AppProps> {
-
-  render () {
+  render() {
     const { isLoading, error } = this.props.auth0;
 
     if (error) {
@@ -47,6 +46,6 @@ class App extends Component<AppProps> {
       </Router>
     );
   }
-};
+}
 
 export default withAuth0(App);
