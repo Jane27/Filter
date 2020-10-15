@@ -14,7 +14,7 @@ interface Filter {
 
 const FilterItem = ({ filterName, type, deleteFilter, updateInfo }: Filter) => {
   const [name, setName] = useState(filterName);
-  const [style, setStyle] = useState(type);
+  const [filterType, setfilterType] = useState(type);
   const refInput = useRef<HTMLInputElement>(null);
 
   const handleUpdateName = () => {
@@ -25,7 +25,7 @@ const FilterItem = ({ filterName, type, deleteFilter, updateInfo }: Filter) => {
   };
 
   const handleUpdateType = (newType: string) => {
-    setStyle(newType);
+    setfilterType(newType);
     updateInfo(filterName, "type", newType);
   };
 
@@ -52,7 +52,7 @@ const FilterItem = ({ filterName, type, deleteFilter, updateInfo }: Filter) => {
         </div>
         <select
           className="custom-select"
-          value={style}
+          value={filterType}
           onChange={(e) => handleUpdateType(e.target.value)}
         >
           {types.map((item, index) => (
